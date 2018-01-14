@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class IsUnique {
 	
 	
-	public boolean isUnique(String str){
+/*	public boolean isUnique(String str){
 		HashMap<Character,Integer> hm = new HashMap<Character, Integer>();
 
 		for(int i=0; i<str.length();i++){
@@ -19,11 +19,30 @@ public class IsUnique {
 		}
 		
 		return true;
+	}*/
+	
+	boolean isUnique(String str){
+		
+		if(str.length() > 128){
+			return false;
+		}
+		
+		boolean[] arr = new boolean[128];
+		
+		for(int i = 0; i<str.length();i++){
+			int val = str.charAt(i);
+			
+			if(arr[val]){
+				return false;
+			}
+			arr[val] = true;
+		}
+		return true;
 	}
 
 	public static void main(String[] args) {
 		IsUnique unn = new IsUnique();
-		System.out.println(unn.isUnique("Suchis"));
+		System.out.println(unn.isUnique("Suchishree"));
 		
 		
 	}
