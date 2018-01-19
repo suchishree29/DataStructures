@@ -33,6 +33,35 @@ Example 2:
 package string;
 
 public class StrFrmBinTree {
+	
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+		TreeNode(int x) { val = x; }
+	}
+	
+
+	public String tree2str(TreeNode t) {
+        
+        StringBuilder sb = new StringBuilder();
+        
+        if(t == null){
+        	return "";
+        }
+        
+        sb.append(t.val);
+        if(t.left != null){
+        	sb.append("(" + tree2str(t.left) + ")");
+        }else if(t.right != null){
+        	sb.append("()");
+        }
+        
+        if(t.right != null){
+        	sb.append("(" + tree2str(t.right) + ")");
+        }
+        return sb.toString();
+	}
 
 	public static void main(String[] args) {
 		
